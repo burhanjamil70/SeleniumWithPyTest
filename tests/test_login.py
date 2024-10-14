@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
 browser_path = 'D:/chrome-win64/chrome-win64/chrome.exe'
-driver_path = 'D:/chromedriver-win64/chromedriver-win64/chromedriver.exe'
+driver_path = 'drivers/chromedriver.exe'
 import pytest
 from selenium.common import NoSuchElementException
 
@@ -60,7 +60,7 @@ def test_login_with_empty_username_and_valid_password(setup):
     driver.find_element(By.ID, "password").send_keys("Qwerty7@1234...")
     driver.find_element(By.XPATH, "//*[@id='customer_login']/div[1]/form/p[3]/input[3]").click()
     error = driver.find_element(By.CLASS_NAME, "woocommerce-error")
-    assert error.text.__contains__(".Username is required")
+    assert error.text.__contains__("Username is required")
 
 @pytest.mark.xfail
 def test_login_with_empty_username_and_empty_password(setup):
