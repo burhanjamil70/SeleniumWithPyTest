@@ -14,7 +14,7 @@ def setup():
     op = webdriver.ChromeOptions()
     #op.binary_location = browser_path
     #op.add_experimental_option("detach", True)
-    op.add_argument("headless=new")
+    op.add_argument("--headless=new")
     driver = webdriver.Chrome(options=op, service=Service(executable_path=driver_path))
     driver.maximize_window()
     driver.get(url=url)
